@@ -1,0 +1,198 @@
+<ion-header >
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Alimentación</ion-title>
+    <ion-buttons end="" (click) = "confirmarReinicio()" >
+      <button ion-button="" class="disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"><span class="button-inner">{{btnName}}</span></button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-list>
+    
+      <ion-item>
+        <div class="info_macros_header">
+          <ion-grid item-content>
+            <ion-row >
+              <ion-col col-3 class="info_macros_header_titulos">
+                <div>Proteínas</div>
+                <div>Grasas</div>
+                <div>Carbohidratos</div>
+                <div>Calorías</div>
+              </ion-col>
+              <ion-col col-1 class="info_macros_header_macros">
+                <div>{{ (macros.proteinas) }}</div>
+                <div>{{ (macros.grasas) }}</div>
+                <div>{{ (macros.carbohidratos) }}</div>
+                <div>{{ (macros.calorias) }}</div>
+              </ion-col>
+              <ion-col col-5 class="info_macros_header_control">
+                <div class="control_barras barra_proteinas">
+                  <div class="segmento_control"></div>
+                  <div class="segmento_control"></div>
+                  <div class="segmento_control"></div>
+                  <div class="segmento_control"></div>
+                  <div class="marcador" [ngStyle]="{'margin-left': barra.proteinas + '%'}"></div>
+                  <div class="barra_color {{ barra.proteinas < 38 ? 'color_rojo' : barra.proteinas < 44 ? 'color_amarillo' : barra.proteinas < 56 ? 'color_verde' : barra.proteinas <= 62 ? 'color_amarillo' : 'color_rojo'}}" [ngStyle]="{'width': barra.proteinas + '%'}"></div>
+                </div>
+                <div class="control_barras barra_grasas">
+                  <div class="segmento_control"></div>
+                  <div class="segmento_control"></div>
+                  <div class="segmento_control"></div>
+                  <div class="segmento_control"></div>
+                  <div class="marcador" [ngStyle]="{'margin-left': barra.grasas + '%'}"></div>
+                  <div class="barra_color {{ barra.grasas < 38 ? 'color_rojo' : barra.grasas < 44 ? 'color_amarillo' : barra.grasas < 56 ? 'color_verde' : barra.grasas    <= 62 ? 'color_amarillo' : 'color_rojo'}}" [ngStyle]="{'width': barra.grasas + '%'}"></div>
+                </div>
+                <div class="control_barras barra_carbohidratos">
+                  <div class="segmento_control"></div>
+                  <div class="segmento_control"></div>
+                  <div class="segmento_control"></div>
+                  <div class="segmento_control"></div>
+                  <div class="marcador" [ngStyle]="{'margin-left': barra.carbohidratos + '%'}"></div>
+                  <div class="barra_color {{ barra.carbohidratos < 38 ? 'color_rojo' : barra.carbohidratos < 44 ? 'color_amarillo' : barra.carbohidratos < 56 ? 'color_verde' : barra.carbohidratos <= 62 ? 'color_amarillo' : 'color_rojo'}}" [ngStyle]="{'width': barra.carbohidratos + '%'}"></div>
+                </div>
+                <div class="control_barras barra_calorias">
+                  <div class="segmento_control"></div>
+                  <div class="segmento_control"></div>
+                  <div class="segmento_control"></div>
+                  <div class="segmento_control"></div>
+                  <div class="marcador" [ngStyle]="{'margin-left': barra.calorias + '%'}"></div>
+                  <div class="barra_color {{ barra.calorias < 38 ? 'color_rojo' : barra.calorias < 44 ? 'color_amarillo' : barra.calorias < 56 ? 'color_verde' : barra.calorias <= 62 ? 'color_amarillo' : 'color_rojo'}}" [ngStyle]="{'width': barra.calorias + '%'}"></div>
+                </div>
+              </ion-col>
+              <ion-col col-1 class="info_macros_header_total">
+                <div>{{ (informacion_personal.proteinas) }}</div>
+                <div>{{ (informacion_personal.grasas) }}</div>
+                <div>{{ (informacion_personal.carbohidratos) }}</div>
+                <div>{{ (informacion_personal.calorias) }}</div>
+              </ion-col>
+              <ion-col col-2 [ngClass]='clase_campo_busqueda'>
+                <ion-icon (click)="mostrarOcultarBuscador(this)" aria-label="search" class="icon_busqueda icon icon-md ion-md-search" name="search" ng-reflect-name="search" role="img" ></ion-icon>
+              </ion-col>
+            </ion-row >
+          </ion-grid>
+        </div>
+      </ion-item>
+
+  </ion-list>
+  <ion-searchbar [ngClass]='clase_campo_busqueda'  [(ngModel)]="searchTerm"  (ionInput)="cambiarBusqueda()" (ionBlur)="cambiarBusqueda()" placeholder="Buscar alimento" ></ion-searchbar>
+  <div class="tabs_categorias" [ngClass]='clase_campo_busqueda' >
+    <div (click) = "seleccionarCategoria(false)" >
+        Limpiar
+    </div>
+    <div *ngFor="let categoria of categorias; index as i" (click) = "seleccionarCategoria(categoria)" >
+      {{ categoria.nombre }}
+  </div>
+  </div>
+</ion-header>
+
+<ion-content class="listado_alimentos" [ngClass]='clase_campo_busqueda'>
+  <ion-tabs>
+    <ion-tab [root]="chatRoot" tabTitle="Chat" tabIcon="chat"></ion-tab>
+  </ion-tabs>
+  <!--ion-searchbar [ngClass]='clase_campo_busqueda'  [(ngModel)]="searchTerm"  (ionInput)="cambiarBusqueda()" (ionBlur)="cambiarBusqueda()" placeholder="Buscar alimento" ></ion-searchbar-->
+  <ion-list  >
+    <ion-item-group side="start"  >
+      <ng-container *ngFor="let item of items; index as i">
+        <ion-item  *ngIf="( item.visibilidad && !item.filtrado)">
+          <ion-thumbnail item-start >
+            <img src="{{ item.img }}" (press)="editarItem(item)">
+          </ion-thumbnail>
+          <ion-grid item-content >
+            <ion-row>
+              <ion-col col-4>
+                <h2>{{ item.nombre }}</h2>
+                <div class="detalle">
+                  <div class="detalle_item"><label>{{ item.porcion }}g </label> {{ item.detalle }}</div>
+                  <div class="detalle_macros">
+                    <div>
+                      <div class="macros_row_titulos">
+                        P
+                      </div>
+                      <div>{{ item.info.proteinas }}</div>
+                    </div>
+                    <div>
+                      <div class="macros_row_titulos">
+                        G
+                      </div>
+                      <div>{{ item.info.grasas }}</div>
+                    </div>
+                    <div>
+                      <div class="macros_row_titulos">
+                        C
+                      </div>
+                      <div>{{ item.info.carbohidratos }}</div>
+                    </div>
+                    <div>
+                      <div class="macros_row_titulos">
+                        K
+                      </div>
+                      <div>{{ item.info.calorias }}</div>
+                    </div>
+                  </div>
+                </div>
+              </ion-col>
+
+              <ion-col col-2 class="item_button">
+                <ion-buttons end="" (click) = "modalAgregar(item)">
+                  <button  ion-button="" class="disable-hover bar-button bar-button-default">
+                    <span class="button-inner">
+                      <ion-icon ios="ios-add" md="md-add"></ion-icon>
+                    </span>
+                  </button>
+                </ion-buttons>
+              </ion-col>
+                  
+              <ion-col col-2 class="item_number">
+                <ion-input
+                  ng-paste="$event.preventDefault();"
+                  ng-copy="$event.preventDefault();"
+                  ng-cut="$event.preventDefault();"
+                  ng-init="paste=false" type="number"
+                  min="0" max="999"  (ionFocus) =
+                  "selectText($event._native.nativeElement)"
+                  (ionChange)="actualizarMacros()"
+                  [(ngModel)]="item.cantidad"
+                  (ionBlur) = "blurInput(item)"
+                  >
+                </ion-input>
+              </ion-col>
+              <ion-col col-2 class="item_button">
+                <ion-buttons end="" (click) = "modificarCantidad(item,'rmv')">
+                  <button  ion-button="" class="disable-hover bar-button bar-button-default">
+                    <span class="button-inner">
+                      <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
+                    </span>
+                  </button>
+                </ion-buttons>
+              </ion-col>
+              <ion-col col-2 class="item_button">
+                <ion-buttons (click) = "modificarCantidad(item,'add')">
+                  <button  ion-button="" class="disable-hover bar-button bar-button-default">
+                    <span class="button-inner">
+                      <ion-icon ios="ios-arrow-dropup" md="md-arrow-dropup"></ion-icon>
+                    </span>
+                  </button>
+                </ion-buttons>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ng-container>
+    </ion-item-group>
+    <div>
+      <button (click) = "agregarNuevoItem()" ion-button full class="button_app">Agregar alimento</button>
+      <br>
+      <br>
+      <button (click) = "agregarReceta()" ion-button full class="button_app">Agregar receta</button>
+    </div>
+    <!--div style="border-bottom: 1px solid #dedede;padding: 10px;"  >
+      <button ion-button (click)="agregarNuevoItem()">
+        <ion-label>Agregar alimento </ion-label>
+        <ion-icon ios="ios-add" md="md-add"></ion-icon>
+      </button>
+    </div-->
+  </ion-list>
+</ion-content>
+
+

@@ -1,0 +1,35 @@
+page-modal {
+
+}
+page-modal .item-md {
+
+    padding-left: 0;
+}
+
+ion-app.md page-modal [padding] .scroll-content {
+  padding-right: 0px;
+}
+
+page-modal ion-content .scroll-content {
+    padding-right: 6px;
+}
+
+
+page-modal .item-label-stacked .text-input-md, .item-label-floating .text-input-md {
+    margin-top: 5px;
+  }
+page-modal .item-md .toggle-md {
+  padding: 12px 8px 12px 0px;
+}
+page-modal .item-md.item-block .item-inner .input-wrapper{
+  display: none;
+}
+page-modal .item-md.item-block .item-inner {
+    border-bottom: none;
+}
+page-modal ion-icon {
+    display: inline-block;
+    font-size: 22px;
+    color: #FFF;
+    width: 34px;
+}

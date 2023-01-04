@@ -1,0 +1,589 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+ion-app, ion-nav > .ion-page {
+  background-color: rgb(66,66,66);
+}
+ion-content {
+  background-color: red;
+}
+.menu-inner .label.label-md {
+
+    color: #FFF;
+    text-transform: uppercase;
+
+}
+.scroll-content {
+  background-color: #424242;
+}
+.content-md {
+    background-color: inherit;
+}
+button.button_app {
+    background-color: rgb(46,81,96);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+button.button_app:hover:not(.disable-hover) {
+    background-color: #406372;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+}
+
+page-inicio .scroll-content {
+
+    color: #FFF;
+    padding-top: 15px;
+
+}
+page-home .scroll-content {
+    top:105px;
+    transition: all 0.3 ease 0s;
+}
+page-home ion-content.buscador_oculto    .scroll-content {
+    top:0px;
+}
+.contenido_padding {
+  padding-left: 10px;
+
+  padding-right: 10px;
+}
+.label_seccion {
+
+    padding-left: 10px;
+    color: #FFF;
+    margin-bottom: 10px;
+    font-size: 12px;
+    padding-right: 10px;
+
+}
+
+.label_input {
+  color: rgb(192,192,192);
+  font-size: 12px;
+}
+.input_formulario input.text-input, ion-select.select_clasificacion {
+
+    margin: 5px 0 0 0px;
+    padding: 5px 10px 5px 10px;
+    width: 100%;
+    border: 1px solid rgb(102,102,102);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #666666;
+    box-shadow: inset 2.5px 2.5px 8px rgba(0, 0, 0, 0.3);
+    color: #FFF;
+
+}
+ion-select.select_clasificacion  {
+    width:100%;
+    max-width: 100%;
+}
+.toolbar-background-md {
+    background-color: rgb(48,48,48);
+}
+.toolbar-title.toolbar-title-md {
+
+    color: #FFF;
+
+}
+
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+
+    color: #FFF;
+
+}
+.item-md ion-thumbnail ion-img, .item-md ion-thumbnail img {
+    width: 60px;
+    height: 60px;
+}
+.item-md ion-thumbnail {
+    min-width: 60px;
+    min-height: 60px;
+}
+.label-md {
+    margin: 0px 8px 0px 0;
+}
+.macro_info {
+    display: inline-block;
+    background-color: #00d0d0;
+    border-radius: 2px;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+    overflow: hidden;
+    vertical-align: top;
+
+}
+.info_macros_header_macros{
+  text-align: right;
+  line-height: 14px;
+  padding-left: 0;
+}
+
+.info_macros_header_total{
+  text-align: left;
+  line-height: 14px;
+  padding-right: 0;
+}
+.info_macros_header_titulos {
+
+    text-align: right;
+    font-weight: normal;
+    line-height: 14px;
+
+}
+
+.detalle > div.detalle_macros {
+
+
+    font-size: 7px;
+    top: 4px;
+}
+
+ion-row ion-col .detalle > .detalle_macros  {
+
+    display: table;
+    width: 100%;
+    margin-top: 4px;
+
+}
+ion-row ion-col .detalle > .detalle_macros > div {
+
+    display: table-cell;
+    width: 25%;
+    padding: 2px;
+    text-align: center;
+    box-shadow: inset 2.5px 2.5px 8px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 2.5px 2.5px 8px rgba(0, 0, 0, 0.2);
+    border-right: 2px solid transparent;
+    font-size: 6px;
+
+}
+
+.macros_row_titulos {
+
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+
+}
+
+
+.macros_row_titulos > div {
+  text-transform: uppercase;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+
+.control_barras {
+
+    display: table;
+    width: 100%;
+    margin-bottom: 6px;
+    position: relative;
+    margin-top: 3px;
+    height: 8px;
+
+}
+.control_barras > .segmento_control {
+
+    background: transparent;
+    height: 8px;
+    width: 25%;
+    display: table-cell;
+    box-shadow: inset 2.5px 2.5px 8px rgba(0, 0, 0, 0.3);
+    border-right: 2px solid rgb(84,84,84);
+    position: relative;
+z-index: 0;
+}
+.barra_color {
+
+    position: absolute;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    top: 0px;
+    z-index: 0;
+    transition: all 0.3s ease 0s;
+
+}
+.color_rojo {
+  background: rgba(255,0,0,0.4);
+}
+.color_amarillo {
+  background: rgba(255, 198, 0,0.4);
+}
+.color_verde {
+    background: rgba(0,255,0,0.4);
+}
+
+.text-input::selection {
+  background: #FFF;
+  color: #000;
+}
+.text-input::-moz-selection {
+  background: #FFF;
+  color: #000;
+}
+.control_barras > .marcador {
+
+    position: absolute;
+    left: -4px;
+    top: 0px;
+    z-index: 1;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    margin-left: 0%;
+
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+
+    border-bottom: 8px solid white;
+
+}
+.item.item-block.item-md.item-range {
+
+    padding-left: 10px;
+    color: #FFF;
+    padding-right: 10px;
+
+}
+
+.input-wrapper .range-md {
+
+    padding: 0;
+
+}
+.item.item-block.item-md.item-range .item-inner {
+    border: none;
+
+}
+.label_range {
+
+    padding: 10px;
+    color: silver;
+    font-size: 12px;
+
+}
+.macro_info > .mi_desc {
+    display: table-cell;
+    background-color: #009c9c;
+    padding: 2px;
+    color: #FFF;
+    margin: 0;
+    position: relative;
+    vertical-align: top;
+    font-size: 8px;
+}
+
+.macro_info > .mi_det {
+    display: table-cell;
+    padding: 2px;
+    color: #FFF;
+    vertical-align: top;
+    font-size: 8px;
+}
+.item-inner ion-reorder {
+
+    position: absolute;
+    left: 0;
+    top: 0px;
+    z-index: 2;
+    opacity: 1;
+    width: 26px;
+    max-width: inherit;
+    text-align: left;
+    text-indent: 0;
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+}
+
+.info_macros_header {
+
+    color: #FFF;
+    font-size: 10px;
+
+}
+[col-1]:hover {
+
+    background-color: #DDD;
+
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+.listado_alimentos .text-input.text-input-md {
+    border-bottom: 1px solid;
+}
+.item-md.item-block .item-inner {
+    padding-right: 0px;
+}
+page-inicio .grid, page-modal .grid {
+    padding-right: 5px;
+}
+.grid {
+    padding-right: 0px;
+}
+.col_macro_info {
+    position: absolute;
+    bottom: 4px;
+}
+
+.control_input {
+padding: 0;
+
+}
+.control_input .icon {
+    line-height: 56px;
+    width: 100%;
+    text-align: center;
+
+}
+.control_input .icon:hover {
+
+    background: #ffdfdf;
+
+
+}
+.item_number input {
+
+    margin: 0;
+    width: 100%;
+    height: 56px;
+    text-align: center;
+
+}
+.item-input-has-focus, .input-has-focus {
+    pointer-events: inherit;
+}
+.item-md ion-avatar[item-left], .item-md ion-thumbnail[item-left], .item-md ion-avatar[item-start], .item-md ion-thumbnail[item-start] {
+    margin: 8px 4px 8px 0;
+}
+.control_input .ion-md-arrow-dropdown-circle {
+    text-align: right;
+    padding-right: 6px;
+}
+.control_input .ion-md-arrow-dropup-circle {
+    text-align: left;
+    padding-left: 6px;
+}
+/*
+ion-item::before {
+    z-index: 0;
+    opacity: 0;
+    background-color: #FFF;
+    transition: opacity 0.3s ease 0s;
+    width: 100%;
+    height: 100%;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.reorder-enabled.reorder-visible ion-item::before {
+
+    opacity: 0.5;
+    z-index: 1;
+
+}*/
+.list.list-md {
+
+    padding-top: 4px;
+
+}
+.item-md h2 {
+    z-index: 2;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 2px;
+    color: #FFF;
+    font-size: 12px;
+}
+.ion-md-reorder::before {
+
+    content: "\f1c9";
+
+}
+.listado_alimentos .item-md {
+
+    padding-left: 26px;
+    border-bottom: 1px solid rgb(84,84,84) !important;
+    background-color: #424242;
+
+}
+.listado_alimentos div.scroll-content .list-md .item-block .item-inner {
+
+    border-bottom: 0px;
+    -webkit-box-shadow: none !important;
+    box-shadow: none  !important;
+}
+
+.listado_alimentos ion-list ion-item-group ion-item,
+.listado_alimentos .scroll-content ion-list ion-item-group ion-item:last-child {
+
+    border-bottom: 1px solid rgb(222, 222, 222) !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none  !important;
+}
+
+.listado_alimentos .item-md.item-input.item-input-has-focus .item-inner,
+.listado_alimentos .item-md.item-input.input-has-focus .item-inner,
+.listado_alimentos .list-md .item-input.item-input-has-focus:last-child,
+.listado_alimentos .list-md .item-input.input-has-focus:last-child {
+    border: none;
+    -webkit-box-shadow: inherit;
+    box-shadow: inherit;
+
+}
+.item_number.col {
+
+    padding: 0;
+
+}
+
+
+.listado_alimentos .list.list-md {
+    padding-bottom: 60px;
+    
+}
+.listado_alimentos ion-col ion-buttons.bar-buttons button.bar-button.button-default {
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    width: 100%;
+    height: 56px;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    color: #000;
+
+}
+
+ion-col ion-buttons.bar-buttons button.bar-button.button-default .button-effect {
+
+    background-color: #CCC;
+
+}
+
+.listado_alimentos .text-input.text-input-md {
+
+    border: 1px solid rgb(84,84,84);
+    box-shadow: inset 2.5px 2.5px 8px rgba(0, 0, 0, 0.3);
+    background-color: rgb(48,48,48);
+    color: #FFF;
+
+}
+
+.listado_alimentos .col.item_button {
+  padding: 0;
+  color: #FFF;
+  font-size: 12px;
+  text-align: center;
+}
+.listado_alimentos .item_button.col ion-buttons {
+    margin: 0;
+}
+
+.listado_alimentos ion-col ion-buttons.bar-buttons button.bar-button ion-icon {
+    font-size: 22px;
+    color: #FFF;
+}
+ion-row ion-col .detalle {
+
+    font-size: 8px;
+    color: #FFF;
+    margin-bottom: 2px;
+
+}
+.modal-wrapper_k{
+    position: absolute;
+    overflow: hidden;
+    max-width: 320px;
+    border-radius: 10px;
+    width: 90vw;
+    height: 50vh !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 0;
+    box-shadow: 0 16px 20px rgba(0,0,0,.4);
+    background-color: #fafafa;
+  }
+
+  .listado_alimentos .list.list-md {
+
+      padding-bottom: 60px;
+      margin-bottom: 0px;
+
+  }
+
+  ion-app.md {
+
+    background-color: rgb(66,66,66);
+
+}
+.item-md {
+
+    background-color: inherit;
+
+}
+ion-item-group {
+  margin-bottom: 10px;
+}
+
+.custom-alertDanger {
+
+    }
+
+
+.custom-alertDanger .alert-wrapper {
+  background-color: #424242;
+  color: #FFF !important;
+
+}
+
+.custom-alertDanger input[type="number"] {
+  color: #FFF;
+
+}
+
+.custom-alertDanger input[type="button"] {
+  color: #FFF;
+
+}
+
+.custom-alertDanger .alert-input-wrapper {
+
+    display: inline-block;
+    width: 50%;
+
+}
+
+ion-menu button.item div {
+  line-height: 60px;
+}
+.custom-alertDanger .alert-message {
+    display: none;
+  }

@@ -1,0 +1,64 @@
+page-home {
+
+}
+page-home .list-md ion-item-sliding {
+    background-color: #424242;
+}
+
+page-home ion-header .list.list-md {
+    margin: 0;
+    padding: 0;
+}
+
+ion-searchbar.searchbar.buscador_oculto {
+    /*height: 0;*/
+    overflow: hidden;
+    display: none;
+    
+}
+ion-searchbar.searchbar {
+    /*transition: linear 0.1s all 0s;*/
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 65px;
+    background-color: #424242;
+}
+
+ion-col.col.buscador_oculto > ion-icon.icon_busqueda {
+    color: #FFF;
+}
+
+ion-col.col > ion-icon.icon_busqueda {
+    font-size: 36px;
+    width: 100%;
+    text-align: center;
+    line-height: 78px;
+    color: #C5C5C5;
+    line-height: 58px;
+    transition: linear 0.1s all 0s;
+}
+.tabs_categorias.buscador_oculto {
+    height: 0;
+}
+
+.tabs_categorias {
+    display: block;
+    overflow: auto;
+    white-space: nowrap;
+    height: 40px;
+    line-height: 40px;
+    background-color: #424242;
+}
+
+.tabs_categorias > div{
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    color:#FFF;
+}
+
+.custom-alertDanger input[type="button"].boton_presionado {
+    background: #2e5160;
+}

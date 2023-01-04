@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Mostrar / Ocultar alimentos</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="listado_alimentos">
+  <ion-list>
+    <ion-item-group side="start" reorder="{{flag}}" (ionItemReorder)="reorderItems($event)">
+      <ion-item *ngFor="let item of items; index as i">
+        <ion-thumbnail item-start >
+          <img src="{{ item.img }}">
+        </ion-thumbnail>
+        <ion-grid item-content>
+          <ion-row >
+            <ion-col col-4>
+                <h2>{{ item.nombre }}</h2>
+                <div class="detalle">
+                  <div class="detalle_item">{{ item.detalle }}</div>
+                  <div class="detalle_macros">
+                    <div>
+                      <div class="macros_row_titulos">
+                        P
+                      </div>
+                      <div>{{ item.info.proteinas }}</div>
+                    </div>
+                    <div>
+                      <div class="macros_row_titulos">
+                        G
+                      </div>
+                      <div>{{ item.info.grasas }}</div>
+                    </div>
+                    <div>
+                      <div class="macros_row_titulos">
+                        C
+                      </div>
+                      <div>{{ item.info.carbohidratos }}</div>
+                    </div>
+                    <div>
+                      <div class="macros_row_titulos">
+                        K
+                      </div>
+                      <div>{{ item.info.calorias }}</div>
+                    </div>
+                  </div>
+                </div>
+              </ion-col>
+              <ion-col col-3 class="item_button">
+
+                <ion-label *ngIf="item.visibilidad">
+                  Visible
+                </ion-label>
+                <ion-label *ngIf="!item.visibilidad">
+                  Oculto
+                </ion-label>
+                <ion-toggle [(ngModel)]="item.visibilidad" (ionChange)="guardarAlimentos()"></ion-toggle>
+
+              </ion-col>
+              <ion-col col-2 class="">
+              </ion-col>
+              <ion-col col-2 class="">
+              </ion-col>
+              <ion-col col-1 class="">
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+    </ion-item-group>
+  </ion-list>
+</ion-content>

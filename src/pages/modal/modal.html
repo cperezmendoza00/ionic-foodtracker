@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{titulo_modal}}</ion-title>
+    <ion-buttons end="" (click)="closeModal()" >
+      <button ion-button="" class="disable-hover bar-button bar-button-md bar-button-default bar-button-default-md"><span class="button-inner">  <ion-icon ios="ios-close" md="md-close"></ion-icon></span></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+      <ion-row >
+          <ion-col col-8>
+            <ion-label class="label_input">Título</ion-label>
+            <ion-input class="input_formulario" [(ngModel)]="item.nombre" type="text" placeholder="Nombre"></ion-input>
+      </ion-col>
+      <ion-col col-4>
+          <ion-label class="label_input">{{titulo_visibilidad}}</ion-label>
+          <ion-item>
+            <ion-toggle [(ngModel)]="item.visibilidad" (ionChange)="cambiarVisibilidad(item)"></ion-toggle>
+          </ion-item>
+      </ion-col>
+      <!-- Advanced: explicity set the icon for each platform -->
+    </ion-row >
+    <ion-row >
+      <ion-col col-4>
+            <ion-label class="label_input">Porción</ion-label>
+            <ion-input class="input_formulario" (ionFocus) = "selectText($event._native.nativeElement)" [(ngModel)]="item.porcion" type="number" placeholder="Gramos"></ion-input>
+      </ion-col>
+      <ion-col col-8>
+          <ion-label class="label_input">Descripción</ion-label>
+          <ion-input class="input_formulario" [(ngModel)]="item.detalle" type="text" placeholder="Información adicional"></ion-input>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row >
+        <ion-col col-12>
+          <ion-label class="label_input">Categoría</ion-label>
+          <ion-select [(ngModel)]="item.categoria" selectedText="" multiple = "false" placeholder="Seleccione..." interface="popover" class="select_clasificacion">
+            <ion-option *ngFor="let categoria of categorias; index as i" [value] = "categoria.id">
+                {{ categoria.nombre }}
+            </ion-option>
+            <!--ion-option *ngFor="let categoria of categorias" [value]="employee">{{categoria}}</ion-option-->
+          </ion-select>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+          <ion-label class="label_input">Proteínas</ion-label>
+          <ion-input class="input_formulario" (ionFocus) = "selectText($event._native.nativeElement)" [(ngModel)]="item.info.proteinas" type="number" placeholder="Gramos"></ion-input>
+      </ion-col>
+      <ion-col col-4 >
+          <ion-label class="label_input">Grasas</ion-label>
+          <ion-input class="input_formulario" (ionFocus) = "selectText($event._native.nativeElement)" [(ngModel)]="item.info.grasas" type="number" placeholder="Gramos"></ion-input>
+      </ion-col>
+      <ion-col col-4>
+          <ion-label class="label_input">Carbohidratos</ion-label>
+          <ion-input class="input_formulario" (ionFocus) = "selectText($event._native.nativeElement)" [(ngModel)]="item.info.carbohidratos" type="number" placeholder="Gramos"></ion-input>
+      </ion-col>
+    </ion-row >
+  </ion-grid>
+  <div>
+    <button (click) = "aceptar()" ion-button full class="button_app">Guardar</button>
+  </div>
+  <div *ngIf="nuevo == false" >
+    <br>
+    <button (click) = "borrar_item()" ion-button full class="button_app">Borrar Item</button>
+  </div>
+</ion-content>

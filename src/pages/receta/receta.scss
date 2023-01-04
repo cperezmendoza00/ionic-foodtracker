@@ -1,0 +1,98 @@
+page-receta .label_input_detalle {
+  color: silver;
+  font-size: 14px;
+  text-overflow: unset;
+  white-space: normal;
+  text-align: justify;
+  line-height: 18px;
+}
+
+page-receta .label_seccion {
+  width: 100%;
+}
+
+page-receta ul.listado_items {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background: #FFF;
+	font-size: 12px;
+	line-height: 12px;
+	margin-top: 2px;
+	position: absolute;
+	z-index: 10;
+  width: calc(100% - 10px);
+  max-height: 120px;
+  overflow: auto;
+}
+
+
+page-receta ul.listado_items > li {
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	border-bottom: 1px solid #bbbaba;
+	cursor: pointer;
+}
+
+page-receta ul.listado_items > li div {
+	font-size: 10px;
+	line-height: 12px;
+	color: gray;
+}
+page-receta .agregar_ingrediente > ion-icon {
+  font-size: 30px;
+  color: #FFF;
+  line-height: 16px;
+  margin-top: 30px;
+  text-align: center;
+  width: 100%;
+  margin: 19px 0 0 0px;
+  padding: 5px 10px 5px 10px;
+  width: 100%;
+  border: 1px solid #666666;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: #666666;
+  -webkit-box-shadow: 2.5px 2.5px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 2.5px 2.5px 8px rgba(0, 0, 0, 0.3);
+  height: 29px;
+  cursor: pointer;
+}
+
+
+page-receta .label_ingrediente {
+  width: 100%;
+  padding-left: 10px;
+  color: #FFF;
+  margin-bottom: 10px;
+  font-size: 12px;
+  padding-right: 10px;
+}
+
+page-receta .label_ingrediente > .label.label-md {
+  padding-bottom: 4px;
+}
+
+
+page-receta .listado_ingredientes > ion-row {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  cursor: pointer;
+}
+
+page-receta .listado_ingredientes {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 12px;
+	line-height: 12px;
+  overflow: auto;
+  color: #FFF;
+  padding-left: 10px;
+  box-sizing: border-box;
+  padding-right: 10px;
+}

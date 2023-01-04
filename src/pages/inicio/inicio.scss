@@ -1,0 +1,40 @@
+page-inicio {
+
+}
+.img_macros  {
+    font-size: 0;
+}
+.img_macros .img_macro {
+    display: inline-block;
+    width: 33%;
+    font-size: 12px;
+}
+
+.info_macro {
+    text-align: center;
+}
+
+.label_seccion > .label.label-md {
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    padding-bottom: 4px;
+}
+
+ion-range.range > ion-label.label {
+    color: #FFF;
+    width: 20px;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+ion-range.range > ion-label.label.range-left {
+    text-align: left;
+
+}
+ion-range.range > ion-label.label.range-right {
+    text-align: right;
+
+}
+
+.label_range.label.label-md {
+    padding-bottom: 0px;
+}

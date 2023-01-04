@@ -1,0 +1,29 @@
+page-alimentos {
+
+}
+
+
+page-alimentos ion-toggle.toggle-md .toggle-icon {
+
+    width: 35px;
+    height: 14px;
+
+}
+
+page-alimentos ion-toggle.toggle-md .toggle-md {
+
+    cursor: pointer;
+    margin: 0;
+    padding: 0px 16px 0px 16px;
+
+}
+page-alimentos .item-md ion-toggle.toggle.toggle-md {
+padding: 0;
+width: 100%;
+height: 100%;
+position: absolute;
+left: 0;
+top: 0px;
+padding: 24px;
+box-sizing: border-box;
+}

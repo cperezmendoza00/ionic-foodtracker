@@ -1,0 +1,144 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Inicio</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <div class="label_seccion">
+      <ion-label >Ingrese los siguientes datos para empezar</ion-label>
+    </div>
+    <ion-grid>
+      <ion-row >
+        <ion-col col-6>
+          <ion-label class="label_input">Tu peso</ion-label>
+            <ion-input
+              class="input_formulario"
+              (ionChange)="actualizarMacros('peso')"
+              ng-paste="$event.preventDefault();"
+              ng-copy="$event.preventDefault();"
+              ng-cut="$event.preventDefault();"
+              ng-init="paste=false" type="number"
+              min="18" max="100"
+              (ionFocus) = "selectText($event._native.nativeElement)"
+              [(ngModel)]="informacion_personal.peso"
+              placeholder="Peso en kilogramos">
+            </ion-input>
+        </ion-col>
+        <ion-col col-6>
+          <ion-label class="label_input">Calorias</ion-label>
+          <ion-input
+            class="input_formulario"
+            (ionChange)="actualizarMacros('calorias')"
+            ng-paste="$event.preventDefault();"
+            ng-copy="$event.preventDefault();"
+            ng-cut="$event.preventDefault();"
+            ng-init="paste=false" type="number"
+            min="500" max="5000"
+            (ionFocus) = "selectText($event._native.nativeElement)"
+            [(ngModel)]="informacion_personal.calorias"
+            placeholder="Kcal diarias">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+      <br>  
+      <br>
+      <div class="label_seccion">
+        <ion-label >Ajustar macronutrientes</ion-label>
+      </div>
+      <ion-label class="label_range">{{ informacion_personal.proteinaporkilo / 10 }} Gramo(s) de proteina por kilo de peso ({{ informacion_personal.porcentajeproteinas }}%)</ion-label>
+      <ion-item>
+        <ion-range min="10" max="30" [(ngModel)]="informacion_personal.proteinaporkilo" snaps="true" step="1" color="danger" (ionChange)="cambiarRango($event)" >
+        <ion-label class="range-left" range-left>1g</ion-label>
+        <ion-label class="range-right" range-right>3g</ion-label>
+        </ion-range>
+      </ion-item>
+      <ion-label class="label_range">Grasas ({{ informacion_personal.porcentajegrasas }}%) / Carbohidratos ({{ informacion_personal.porcentajecarbohidratos }}%) </ion-label>
+      <ion-item>
+        <ion-range min="1" max="100" [(ngModel)]="informacion_personal.relacion" step="1" color="danger" (ionChange)="cambiarRelacion($event)" >
+        <ion-label class="range-left" range-left>G.</ion-label>
+        <ion-label class="range-right" range-right>C.</ion-label>
+        </ion-range>
+      </ion-item>
+      <ion-grid>
+        <ion-row >
+          <ion-col col-6>
+            <ion-label class="label_input">Proteínas</ion-label>
+            <ion-input
+              class="input_formulario"
+              ng-paste="$event.preventDefault();"
+              ng-copy="$event.preventDefault();"
+              ng-cut="$event.preventDefault();"
+              ng-init="paste=false" type="number"
+              min="18" max="100"
+              (ionFocus) = "selectText($event._native.nativeElement)"
+              [(ngModel)]="informacion_personal.proteinas"
+              placeholder="En gramos">
+            </ion-input>
+          </ion-col>
+          <ion-col col-6>
+            <ion-label class="label_input">Grasas</ion-label>
+            <ion-input
+              class="input_formulario"
+              ng-paste="$event.preventDefault();"
+              ng-copy="$event.preventDefault();"
+              ng-cut="$event.preventDefault();"
+              ng-init="paste=false" type="number"
+              min="500" max="5000"
+              (ionFocus) = "selectText($event._native.nativeElement)"
+              [(ngModel)]="informacion_personal.grasas"
+              placeholder="En gramos">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col col-6>
+            <ion-label class="label_input">Carbohidratos</ion-label>
+            <ion-input
+              class="input_formulario"
+              ng-paste="$event.preventDefault();"
+              ng-copy="$event.preventDefault();"
+              ng-cut="$event.preventDefault();"
+              ng-init="paste=false" type="number"
+              min="18" max="100"
+              (ionFocus) = "selectText($event._native.nativeElement)"
+              [(ngModel)]="informacion_personal.carbohidratos"
+              placeholder="En gramos">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </div>
+      <div>
+        <button (click) = "guardarDatos()" ion-button full class="button_app">Guardar</button>
+      </div>
+      <br>  
+    <br>
+    <div class="label_seccion">
+      <ion-label >Porcentajes de referencia</ion-label>
+    </div>
+    <ion-grid>
+      <ion-row >
+        <ion-col col-12>
+          <div class="img_macros">
+            <div class="img_macro">
+              <img style="touch-action: pan-y; user-select: none;display:block;margin:auto;" src="../assets/imgs/macros1.png">
+              <div class="info_macro">HIGHER-CARB<br>FOR BODYBUILDING</div>
+            </div>
+            <div class="img_macro"><img style="touch-action: pan-y; user-select: none;display:block;margin:auto;" src="../assets/imgs/macros2.png">
+              <div class="info_macro">MODERATE-CARB<br>FOR MAITENANCE</div>
+            </div>
+            <div class="img_macro"><img style="touch-action: pan-y; user-select: none;display:block;margin:auto;" src="../assets/imgs/macros3.png">
+              <div class="info_macro">LOWER-CARB<br>FOR FAT LOSS</div>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>
